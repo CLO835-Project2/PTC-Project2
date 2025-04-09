@@ -1,12 +1,13 @@
-name: Build and Push Docker Images
+name: Build and push to ECR
 
 on:
   push:
-    branches:
-      - development
+  
+    branches: [ "dev" ]
+    
   pull_request:
-    branches:
-      - development
+  
+    branches: [ "dev" ]
 
 jobs:
   build_and_push:
@@ -14,7 +15,7 @@ jobs:
     steps:
       # 1) Check out code
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       # 2) Configure AWS credentials from GitHub Secrets
       - name: Configure AWS credentials
